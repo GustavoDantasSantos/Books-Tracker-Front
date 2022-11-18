@@ -8,20 +8,12 @@ import {
     TileBelowTheFoldContent,
     Dropdown
 } from '@carbon/react';
-
-type Books = {
-    _id: string
-    addOnList: string,
-    autor: string,
-    note: number,
-    status: string,
-    title: string
-}
+import { SelectOptionComponent } from './SelectOptionComponent';
+import { Book } from './types/BookType';
 
 export const CardComponent: React.FC = () => {
 
-    const [listBooks, setListBooks] = useState<Books[]>([]);
-    const items = ['Quero ler', 'Lendo', 'Lido'];
+    const [listBooks, setListBooks] = useState<Book[]>([]);
 
     useEffect(() => {
         getListBooks();
@@ -34,7 +26,6 @@ export const CardComponent: React.FC = () => {
 
     const deleteABook = async (id: string) => {
         const successDelete = await axios.delete(`http://localhost:3090/book/${id}`);
-        console.log(successDelete);
     }
 
     return (
@@ -42,14 +33,12 @@ export const CardComponent: React.FC = () => {
             {
                 listBooks.map(book => (
                     <ExpandableTile
+                        className='ExpandableTile'
                         tabIndex={0}
                         tileCollapsedIconText="Interact to Expand tile"
                         tileExpandedIconText="Interact to Collapse tile"
                         tileMaxHeight={0}
                         tilePadding={0}
-                        style={{
-                            width: '30%'
-                        }}
                     >
                         <TileAboveTheFoldContent>
                             <h4>{book.title}</h4>
@@ -61,17 +50,9 @@ export const CardComponent: React.FC = () => {
                         </TileAboveTheFoldContent>
                         <TileBelowTheFoldContent>
                             <div className="tile-below">
-                                <div style={{ width: '300px', height: '100px' }}>
-                                    <Dropdown
-                                        ariaLabel="Mudar Status"
-                                        id="carbon-dropdown-example"
-                                        items={items}
-                                        label="Opções de status"
-                                        titleText="Mudar Status"
-                                        size='sm' />
-                                </div>
+                                <SelectOptionComponent currentBook={book} />
                                 <button
-                                    onClick={() => deleteItem(book._id)}
+                                    onClick={() => deleteABook(book._id)}
                                 >
                                     <TrashCan />
                                 </button>
