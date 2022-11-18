@@ -1,0 +1,25 @@
+.container {
+    margin-top: 3rem;
+    display: flex;
+
+    .container-text-describe {
+        width: 48%;
+
+        h2 {
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+    }
+
+    .container-addbook {
+        width: 48%;
+        margin-left: 4%;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
