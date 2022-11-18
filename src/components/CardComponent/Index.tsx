@@ -10,6 +10,7 @@ import {
 } from '@carbon/react';
 
 type Books = {
+    _id: string
     addOnList: string,
     autor: string,
     note: number,
@@ -23,12 +24,17 @@ export const CardComponent: React.FC = () => {
     const items = ['Quero ler', 'Lendo', 'Lido'];
 
     useEffect(() => {
-        getList();
+        getListBooks();
     }, []);
 
-    const getList = async () => {
+    const getListBooks = async () => {
         const booksList = await axios.get('http://localhost:3090/book');
         setListBooks(booksList.data);
+    }
+
+    const deleteABook = async (id: string) => {
+        const successDelete = await axios.delete(`http://localhost:3090/book/${id}`);
+        console.log(successDelete);
     }
 
     return (
@@ -64,7 +70,11 @@ export const CardComponent: React.FC = () => {
                                         titleText="Mudar Status"
                                         size='sm' />
                                 </div>
-                                <TrashCan />
+                                <button
+                                    onClick={() => deleteItem(book._id)}
+                                >
+                                    <TrashCan />
+                                </button>
                             </div>
                         </TileBelowTheFoldContent>
                     </ExpandableTile>
