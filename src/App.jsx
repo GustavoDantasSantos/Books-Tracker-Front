@@ -1,11 +1,10 @@
-import { Button } from '@carbon/react';
+import { HeaderComponent } from './components/HeaderComponent/Index';
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Olá</h1>
-      <Button>Oie</Button>
+      <HeaderComponent />
     </div>
   )
 }
