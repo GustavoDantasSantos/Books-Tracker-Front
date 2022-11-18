@@ -1,0 +1,27 @@
+.container-cards {
+    display: flex;
+    width: 100% !important;
+    gap: 40px 10px;
+}
+
+.tile-below {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cds--tile-content__above-the-fold {
+    h4 {
+        text-align: center;
+    }
+
+    div {
+        display: flex;
+        width: 100%;
+        align-items: end;
+        justify-content: space-between;
+        height: 5rem;
+    }
+}
