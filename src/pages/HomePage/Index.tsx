@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardComponent } from '../../components/CardComponent/Index';
 import { RegisterBookComponent } from '../../components/RegisterBookComponent/Index';
+import 'react-toastify/dist/ReactToastify.min.css'; 
 import './Style.scss'
 
 export const HomePage: React.FC = () => {
@@ -20,7 +21,7 @@ export const HomePage: React.FC = () => {
                 </div>
             </div>
             <div className='listBook'>
-                <h3>Quero ler</h3>
+                <h3>Livros</h3>
                 <CardComponent />
             </div>
         </div>

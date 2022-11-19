@@ -6,9 +6,10 @@ import {
     ExpandableTile,
     TileAboveTheFoldContent,
     TileBelowTheFoldContent,
-    Dropdown
+    Button
 } from '@carbon/react';
 import { SelectOptionComponent } from './SelectOptionComponent';
+import { toast, ToastContainer } from 'react-toastify';
 import { Book } from './types/BookType';
 
 export const CardComponent: React.FC = () => {
@@ -17,7 +18,7 @@ export const CardComponent: React.FC = () => {
 
     useEffect(() => {
         getListBooks();
-    }, []);
+    }, [listBooks]);
 
     const getListBooks = async () => {
         const booksList = await axios.get('http://localhost:3090/book');
@@ -26,10 +27,12 @@ export const CardComponent: React.FC = () => {
 
     const deleteABook = async (id: string) => {
         const successDelete = await axios.delete(`http://localhost:3090/book/${id}`);
+        successDelete.status == 200 ? toast.success('Livro deletado com sucesso') : toast.error('Não conseguimos deletar o livro');
     }
 
     return (
         <div className="container-cards">
+            <ToastContainer />
             {
                 listBooks.map(book => (
                     <ExpandableTile
@@ -51,11 +54,13 @@ export const CardComponent: React.FC = () => {
                         <TileBelowTheFoldContent>
                             <div className="tile-below">
                                 <SelectOptionComponent currentBook={book} />
-                                <button
+                                <Button
+                                    size='sm'
+                                    kind='ghost'
                                     onClick={() => deleteABook(book._id)}
                                 >
                                     <TrashCan />
-                                </button>
+                                </Button>
                             </div>
                         </TileBelowTheFoldContent>
                     </ExpandableTile>

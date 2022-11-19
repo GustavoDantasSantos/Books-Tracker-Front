@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { Select, SelectItem } from "@carbon/react";
+import { Select, SelectItem, Button } from "@carbon/react";
 import { Book } from "../types/BookType";
 import './Styles.scss';
+import { toast } from "react-toastify";
 
 type SelectOptionProps = {
     currentBook: Book
@@ -15,6 +16,7 @@ export const SelectOptionComponent: React.FC<SelectOptionProps> = ({ currentBook
     const handleOption = async() => {
         const newBook = {...currentBook, status: value}
         const res = await axios.put(`http://localhost:3090/book/${newBook._id}`, newBook);
+        res.status == 200 ? toast.success('Livro atualizado com sucesso') : toast.error('Não conseguimos atualizar o livro');
     };
 
     return (
@@ -42,7 +44,13 @@ export const SelectOptionComponent: React.FC<SelectOptionProps> = ({ currentBook
                     value="Lido"
                 />
             </Select>
-            <button onClick={() => handleOption()}>Atualizar</button>
+            <Button 
+                size='sm' 
+                kind='secondary' 
+                onClick={() => handleOption()}
+            >
+                Atualizar
+            </Button>
         </div>
     );
 };

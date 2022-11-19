@@ -1,23 +1,15 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { FormGroup, Stack, TextInput, Button } from '@carbon/react';
-import { Toast } from "../Toast/Index";
+import { toast } from "react-toastify";
 
-type FormRegisterProps = {
-    handleModalKind: (bol: Boolean) => {};
-}
-
-export const FormRegister: React.FC<FormRegisterProps> = ({ handleModalKind }: FormRegisterProps) => {
+export const FormRegister: React.FC = () => {
     const [title, setTitle] = useState('');
     const [autor, setAutor] = useState('');
 
     const register = async (title: string, autor: string) => {
         const book = await axios.post('http://localhost:3090/book', { title, autor });
-        if(book.status) {
-            handleModalKind(true);
-        } else {
-            handleModalKind(false);
-        }
+        book.status == 200 ? toast.success('Livro Cadastrado com sucesso') : toast.error('Não conseguimos salvar seu livro');
     }
 
     return (
