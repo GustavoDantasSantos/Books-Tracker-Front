@@ -7,12 +7,51 @@
 .tile-below {
     margin-top: 30px;
     display: flex;
+    height: 10rem;
     align-items: end;
     justify-content: inherit;
     width: 100%;
 
     Button {
         margin-left: 6rem;
+    }
+}
+
+.details-book {
+    position: relative;
+    display: block;
+    #note {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 5px;
+    }
+    #book-title {
+        position: absolute;
+        top: -1px;
+        right: 1px;
+    }
+    .date {
+        display: block;
+        position: absolute;
+        top: 3rem;
+    }
+
+    .completedDate > span {
+        line-height: 1.8rem;
+    }
+
+    .tagStyle {
+        height: 1px !important;
+    }
+}
+
+#autor-status {
+    position: absolute;
+    justify-content: left;
+
+    p:first-child {
+        margin-right: 10.5rem;
     }
 }
 

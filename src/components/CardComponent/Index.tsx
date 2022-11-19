@@ -11,6 +11,9 @@ import {
 import { SelectOptionComponent } from './SelectOptionComponent';
 import { toast, ToastContainer } from 'react-toastify';
 import { Book } from './types/BookType';
+import { formateDate } from '../../helpers/utils';
+import { NoteTooltipComponent } from './ToolTipComponent/NoteTolltipComponent';
+import { CompleteDateTooltipComponent } from './ToolTipComponent/CompleteDateTooltipComponent/Index';
 
 export const CardComponent: React.FC = () => {
 
@@ -44,12 +47,27 @@ export const CardComponent: React.FC = () => {
                         tilePadding={0}
                     >
                         <TileAboveTheFoldContent>
-                            <h4>{book.title}</h4>
                             <div>
-                                <span>{book.autor}</span>
-                                <span>Status: <strong>{book.status}</strong></span>
+                                <div>IMG</div>
+                                <div className='details-book'>
+                                    <div id='note'><NoteTooltipComponent note={book.note} /></div>
+                                    <p id='book-title'>{book.title}</p>
+                                    <div className='date'>
+                                        <p>Data de inclusão: {formateDate(book.addOnList)}</p>
+                                        <p className='completedDate'>
+                                            <span>Data de termino:</span>
+                                            {
+                                                book.completionDate !== null ? book.completionDate :
+                                                    <CompleteDateTooltipComponent date={book.completionDate} />
+                                            }
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-
+                            <div id='autor-status'>
+                                <p>Autor: <strong>{book.autor}</strong></p>
+                                <p>Status: <strong>{book.status}</strong></p>
+                            </div>
                         </TileAboveTheFoldContent>
                         <TileBelowTheFoldContent>
                             <div className="tile-below">
