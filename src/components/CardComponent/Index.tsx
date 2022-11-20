@@ -57,7 +57,7 @@ export const CardComponent: React.FC = () => {
                                         <p className='completedDate'>
                                             <span>Data de termino:</span>
                                             {
-                                                book.completionDate !== null ? book.completionDate :
+                                                book.completionDate !== null ? formateDate(book.completionDate) :
                                                     <CompleteDateTooltipComponent date={book.completionDate} />
                                             }
                                         </p>

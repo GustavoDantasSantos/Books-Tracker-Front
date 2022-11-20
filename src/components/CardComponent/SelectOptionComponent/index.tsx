@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { Select, SelectItem, Button } from "@carbon/react";
+import {UpdateNow} from '@carbon/icons-react'
+import { Select, SelectItem, Button, TextInput } from "@carbon/react";
 import { Book } from "../types/BookType";
 import './Styles.scss';
 import { toast } from "react-toastify";
@@ -12,11 +13,26 @@ type SelectOptionProps = {
 export const SelectOptionComponent: React.FC<SelectOptionProps> = ({ currentBook }: SelectOptionProps) => {
 
     const [value, setValue] = useState('Quero Ler');
+    const [note, setNote] = useState(0);
 
-    const handleOption = async() => {
-        const newBook = {...currentBook, status: value}
-        const res = await axios.put(`http://localhost:3090/book/${newBook._id}`, newBook);
-        res.status == 200 ? toast.success('Livro atualizado com sucesso') : toast.error('Não conseguimos atualizar o livro');
+    const handleOption = async () => {
+        if (value == 'Lendo' || value == 'Quero Ler') {
+            const newBook = { ...currentBook, status: value }
+            const res = await axios.put(`http://localhost:3090/book/${newBook._id}`, newBook);
+            res.status == 200 ? toast.success('Livro atualizado com sucesso') : toast.error('Não conseguimos atualizar o livro');
+            setValue('')
+        } else {
+            const newBook = {
+                ...currentBook,
+                status: value,
+                note: note,
+                completionDate: new Date()
+            }
+            const res = await axios.put(`http://localhost:3090/book/${newBook._id}`, newBook);
+            res.status == 200 ? toast.success('Livro atualizado com sucesso') : toast.error('Não conseguimos atualizar o livro');
+            setValue('')
+            setNote('')
+        }
     };
 
     return (
@@ -44,13 +60,34 @@ export const SelectOptionComponent: React.FC<SelectOptionProps> = ({ currentBook
                     value="Lido"
                 />
             </Select>
-            <Button 
-                size='sm' 
-                kind='secondary' 
-                onClick={() => handleOption()}
-            >
-                Atualizar
-            </Button>
+            {
+                value == 'Lido' ?
+                    <>
+                        <TextInput
+                            id="test2"
+                            invalidText="A valid value is required"
+                            labelText="Dê a sua nota"
+                            placeholder="Nota"
+                            onChange={(e) => setNote(e.target.value)}
+                        />
+                        <Button
+                        className='btnStyle'
+                            size='sm'
+                            kind='ghost'
+                            onClick={() => handleOption()}
+                        >
+                            <UpdateNow />
+                        </Button>
+                    </>
+                    :
+                    <Button
+                        size='sm'
+                        kind='secondary'
+                        onClick={() => handleOption()}
+                    >
+                        Atualizar
+                    </Button>
+            }
         </div>
     );
 };
