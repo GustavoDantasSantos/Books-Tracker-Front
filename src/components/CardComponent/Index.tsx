@@ -48,14 +48,17 @@ export const CardComponent: React.FC = () => {
                     >
                         <TileAboveTheFoldContent>
                             <div>
-                                <div>IMG</div>
+                                <div>
+                                    <h2 id='book-title'>
+                                        {book.title}
+                                    </h2>
+                                </div>
                                 <div className='details-book'>
                                     <div id='note'><NoteTooltipComponent note={book.note} /></div>
-                                    <p id='book-title'>{book.title}</p>
                                     <div className='date'>
                                         <p>Data de inclusão: {formateDate(book.addOnList)}</p>
                                         <p className='completedDate'>
-                                            <span>Data de termino:</span>
+                                            <span>Data de termino: </span>
                                             {
                                                 book.completionDate !== null ? formateDate(book.completionDate) :
                                                     <CompleteDateTooltipComponent date={book.completionDate} />

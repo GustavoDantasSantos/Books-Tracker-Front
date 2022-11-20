@@ -21,6 +21,7 @@
         height: 20px;
         position: absolute;
         top: 5px;
+        left: -1rem;
     }
     #book-title {
         position: absolute;
@@ -30,7 +31,7 @@
     .date {
         display: block;
         position: absolute;
-        top: 3rem;
+        top: 2rem;
     }
 
     .completedDate > span {
@@ -45,6 +46,7 @@
 #autor-status {
     position: absolute;
     justify-content: left;
+    top: 7rem;
 
     p:first-child {
         margin-right: 10.5rem;

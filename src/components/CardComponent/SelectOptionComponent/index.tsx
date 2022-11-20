@@ -31,12 +31,12 @@ export const SelectOptionComponent: React.FC<SelectOptionProps> = ({ currentBook
             const res = await axios.put(`http://localhost:3090/book/${newBook._id}`, newBook);
             res.status == 200 ? toast.success('Livro atualizado com sucesso') : toast.error('Não conseguimos atualizar o livro');
             setValue('')
-            setNote('')
+            setNote(0)
         }
     };
 
     return (
-        <div className="container">
+        <div className="container-select">
             <Select
                 defaultValue="placeholder-item"
                 id="select-1"

@@ -12,9 +12,7 @@ export const CompleteDateTooltipComponent: React.FC<NoteTooltipComponentProps> =
     return (
         <>
             {
-                date !== null ?
-                    <></>
-                    :
+                date == null ?
                     <Tooltip
                         align="bottom"
                         label='Esse livro não foi lido, por isso ainda não há data de conclusão'
@@ -28,6 +26,8 @@ export const CompleteDateTooltipComponent: React.FC<NoteTooltipComponentProps> =
                             <Information />
                         </Button>
                     </Tooltip>
+                    :
+                    <></>
             }
         </>
     );

@@ -11,6 +11,7 @@ export const RegisterBookComponent: React.FC = () => {
             buttonTriggerText="Cadastrar Livro"
             modalHeading="Cadastrar livro"
             size='lg'
+            passiveModal
         >
             <FormRegister />
         </ModalWrapper>
