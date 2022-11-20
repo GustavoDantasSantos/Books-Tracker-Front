@@ -32,7 +32,6 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ### 🎲 Rodando o Front End
 
-```bash
 # Clone este repositório
 $ git clone https://github.com/GustavoDantasSantos/Books-Tracker-Front
 
