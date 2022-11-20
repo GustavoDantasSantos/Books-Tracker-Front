@@ -10,7 +10,7 @@ export const RegisterBookComponent: React.FC = () => {
         <ModalWrapper
             buttonTriggerText="Cadastrar Livro"
             modalHeading="Cadastrar livro"
-            size='lg'
+            size='sm'
             passiveModal
         >
             <FormRegister />
