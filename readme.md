@@ -2,29 +2,21 @@
 Status: Desenvolvendo ⚠️
 
 ## Descrição do Projeto
-<p align="center">Essa é uma aplicação tem como intuito ajudar o usuário a saber quais são os livros que ele está lendo, já leu ou quer ler;</p>
-
-https://img.shields.io/apm/l/book-tracker?style=plastic
+<p>Essa é uma aplicação tem como intuito ajudar o usuário a saber quais são os livros que ele está lendo, já leu ou quer ler;</p>
 
 Tabela de conteúdos
 =================
 <!--ts-->
-   * [Sobre](#Sobre)
-   * [Tabela de Conteudo](#tabela-de-conteudo)
    * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
+   * [Features](#Features)
       * [Pre Requisitos](#pre-requisitos)
-      * [Local files](#local-files)
-      * [Remote files](#remote-files)
-      * [Multiple files](#multiple-files)
-      * [Combo](#combo)
-   * [Tests](#testes)
    * [Tecnologias](#tecnologias)
 <!--te-->
 
 <h4 align="center"> 
 	🚧 Em construção... 🚧
 </h4>
+
 ### Features
 
 - [x] Cadastro de livros
