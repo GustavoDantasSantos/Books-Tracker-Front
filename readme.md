@@ -4,6 +4,9 @@ Status: Desenvolvendo ⚠️
 ## Descrição do Projeto
 <p>Essa é uma aplicação tem como intuito ajudar o usuário a saber quais são os livros que ele está lendo, já leu ou quer ler;</p>
 
+#### Link figma
+[Figma](https://www.figma.com/file/o7MYuEV2S27juaqUR0tk2w/Untitled?node-id=14%3A51&t=tMA9xWoWUC75crS3-1)
+
 Tabela de conteúdos
 =================
 <!--ts-->
