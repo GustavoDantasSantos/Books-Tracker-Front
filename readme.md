@@ -7,6 +7,9 @@ Status: Desenvolvendo ⚠️
 #### Link figma
 [Figma](https://www.figma.com/file/o7MYuEV2S27juaqUR0tk2w/Untitled?node-id=14%3A51&t=tMA9xWoWUC75crS3-1)
 
+#### Link do video da aplicação executando
+[Driver](https://drive.google.com/drive/folders/1xqkOuo0zKOZVCFu80Mh3BQ0mhyCaksLD)
+
 Tabela de conteúdos
 =================
 <!--ts-->
