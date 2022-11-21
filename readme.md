@@ -35,13 +35,13 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ##### Clone este repositório
 $ git clone https://github.com/GustavoDantasSantos/Books-Tracker-Front
 
-# Acesse a pasta do projeto no terminal/cmd
+##### Acesse a pasta do projeto no terminal/cmd
 $ cd Book-Tracker-Front
 
 ##### Instale as dependências
 $ npm install
 
-# Execute a aplicação em modo de desenvolvimento
+##### Execute a aplicação em modo de desenvolvimento
 $ npm run dev
 
 ##### O servidor inciará na porta:5173 - acesse <http://127.0.0.1:5173/>
